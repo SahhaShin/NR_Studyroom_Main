@@ -1,0 +1,467 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!--부트스트랩-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <title>Reservation</title>
+
+    <meta name="description" content="Counter Up - jQuery Plugin Demo">
+    <meta name="author" content="Benjamin Intal">
+    <link rel="author" href="https://plus.google.com/113101541449927918834" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+
+            font-family: Spoqa Han Sans, "Sans-serif";
+            font-size: 1rem;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box;
+        }
+
+        .page {
+            color: #454f5d;
+            overflow: hidden;
+        }
+
+
+        .card-inquiry {
+            height: 920px;
+        }
+
+        element.style {
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            transition: transform 0.7s cubic-bezier(0.0, 0.0, 0.2, 1) 0.00015s,
+                opacity 0.7s cubic-bezier(0.0, 0.0, 0.2, 1) 0.00015s;
+        }
+
+
+
+
+        Style Attribute {
+            visibility: visible;
+        }
+
+
+
+        .page .wrapper {
+            max-width: 1024px;
+            width: 95%;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+
+        .card-inquiry .wrapper {
+            position: relative;
+            height: 100%;
+        }
+
+
+
+        .card-inquiry .content {
+            width: 100%;
+            position: absolute;
+            top: 40%;
+        }
+
+        .__accountContent.__accountContent {
+            margin-top: -200px;
+        }
+
+        .card-inquiry .title {
+            position: absolute;
+            right: 48px;
+        }
+
+
+        .card-inquiry .cards {
+            position: absolute;
+            top: -100px;
+        }
+
+        .card-inquiry .cards__topInfo {
+            padding: 0 25px;
+        }
+
+        ol,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        ol,
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .card-inquiry .cards .item {
+            background: #fff;
+            box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.05), 0 4px 24px 0 rgba(0, 0, 33, 0.05), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+            border-radius: 12px;
+            width: 383px;
+            height: 100px;
+            margin-bottom: 15px;
+            list-style: none;
+            position: relative;
+        }
+
+
+        element.style {
+            visibility: visible;
+            transform: translateX(0) scale(1);
+            opacity: 1;
+            transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s;
+        }
+
+        body {
+            margin: 40px 100px 150px;
+        }
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+            -webkit-transition: all 400ms ease;
+            -moz-transition: all 400ms ease;
+            -o-transition: all 400ms ease;
+            transition: all 400ms ease;
+            text-align: center;
+        }
+
+        h1,
+        h3 {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            margin-bottom: 30px;
+            color: #999;
+        }
+
+        span {
+            font-size: 66px;
+            color: #555;
+            margin-bottom: 350px;
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        span>span {
+            margin-bottom: 0;
+        }
+
+        .circle {
+            background: #2980b9;
+            width: 200px;
+            line-height: 200px;
+            display: inline-block;
+            color: #fff;
+            border-radius: 100%;
+        }
+
+        code,
+        code>span {
+            text-align: left;
+            display: block;
+            font-family: Monaco, monospace;
+            background: #444;
+            color: #fff;
+            padding: 20px;
+            font-size: 14px;
+            margin-bottom: 100px;
+        }
+
+        code>span {
+            padding: 0;
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            span {
+                font-size: 33px;
+                margin-bottom: 200px;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            div>span {
+                font-size: 66px;
+                display: block;
+                width: 100% !important;
+                margin-bottom: 100px;
+            }
+
+            span {
+                font-size: 66px;
+            }
+
+            code {
+                margin-bottom: 100px;
+            }
+        }
+
+        /*fade in*/
+        .fi {
+            display: none;
+        }
+    </style>
+
+
+
+
+    <!--fade in-->
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.fi').fadeIn(2000);
+        });
+    </script>
+    <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <a href="/index"><img src="/static/img/flower_b.png" class="fi" style="width: 50px;height: 50px; margin-left: 47%;"></a>
+   
+    <h3 class="fi">(Reservation)</h3>
+
+    <h3 style="font-size:20px">노량진 스터디룸을 간편하게 예약해보세요.</h3>
+
+
+    <!--예약시작-->
+    <div id="card-lookup" class="page psr card-inquiry" data-sr-id="9"
+        style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.7s cubic-bezier(0.0, 0.0, 0.2, 1) 0.00015s, opacity 0.7s cubic-bezier(0.0, 0.0, 0.2, 1) 0.00015s; transition: transform 0.7s cubic-bezier(0.0, 0.0, 0.2, 1) 0.00015s, opacity 0.7s cubic-bezier(0.0, 0.0, 0.2, 1) 0.00015s; ">
+        <div class="wrapper">
+            <div class="content __accountContent">
+
+
+
+                <form method="GET" action="">
+                    
+                    <div class="title">
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">언제입니까?
+                                    <!-- year -->
+                                    <select name="year">
+                                        <option value="y-2020" selected="selected">2020</option>
+                                        <option value="y-2021">2021</option>
+                                        <option value="y-2022">2022</option>
+                                        <option value="y-2023">2023</option>
+                                    </select>
+
+
+                                    <!-- month -->
+                                    <select name="month">
+                                        <option value="m-1">1</option>
+                                        <option value="m-2">2</option>
+                                        <option value="m-3">3</option>
+                                        <option value="m-4">4</option>
+                                        <option value="m-5">5</option>
+                                        <option value="m-6">6</option>
+                                        <option value="m-7">7</option>
+                                        <option value="m-8" selected="selected">8</option>
+                                        <option value="m-9">9</option>
+                                        <option value="m-10">10</option>
+                                        <option value="m-11">11</option>
+                                        <option value="m-12">12</option>
+                                    </select>
+
+
+                                    <!-- date -->
+                                    <select name="date">
+                                        <option value="d-1">1</option>
+                                        <option value="d-2">2</option>
+                                        <option value="d-3">3</option>
+                                        <option value="d-4">4</option>
+                                        <option value="d-5">5</option>
+                                        <option value="d-6">6</option>
+                                        <option value="d-7">7</option>
+                                        <option value="d-8">8</option>
+                                        <option value="d-9">9</option>
+                                        <option value="d-10">10</option>
+                                        <option value="d-11">11</option>
+                                        <option value="d-12">12</option>
+                                        <option value="d-13">13</option>
+                                        <option value="d-14">14</option>
+                                        <option value="d-15">15</option>
+                                        <option value="d-16">16</option>
+                                        <option value="d-17">17</option>
+                                        <option value="d-18">18</option>
+                                        <option value="d-19">19</option>
+                                        <option value="d-20">20</option>
+                                        <option value="d-21">21</option>
+                                        <option value="d-22">22</option>
+                                        <option value="d-23" selected="selected">23</option>
+                                        <option value="d-24">24</option>
+                                        <option value="d-25">25</option>
+                                        <option value="d-26">26</option>
+                                        <option value="d-27">27</option>
+                                        <option value="d-28">28</option>
+                                        <option value="d-29">29</option>
+                                        <option value="d-30">30</option>
+                                        <option value="d-31">31</option>
+                                    </select>
+                                </li>
+
+
+
+                                <li class="list-group-item">이용시간은?
+                                    <!-- 인원 -->
+                                    <select name="time">
+                                        <option value="t-1">1</option>
+                                        <option value="t-2">2</option>
+                                        <option value="t-3" selected="selected">3</option>
+                                        <option value="t-4">4</option>
+                                        <option value="t-5">5</option>
+                                        <option value="t-6">6</option>
+                                        <option value="t-7">7</option>
+                                        <option value="t-5">8</option>
+                                        <option value="t-6">9</option>
+
+
+                                    </select>
+                                </li>
+
+
+                                <li class="list-group-item">몇 명입니까?
+                                    <!-- 인원 -->
+                                    <select name="people">
+                                        <option value="p-1">1</option>
+                                        <option value="p-2">2</option>
+                                        <option value="p-3">3</option>
+                                        <option value="p-4">4</option>
+                                        <option value="p-5">5</option>
+                                        <option value="p-6">6</option>
+                                        <option value="p-7" selected="selected">7</option>
+
+                                    </select>
+                                </li>
+
+                                <button type="button" class="btn btn-outline-dark">할인정보 조회</button>
+                </form>
+                </ul>
+            </div>
+
+
+
+        </div>
+        <div class="cards">
+
+            <ul>
+                <div style="font-size:15px;font-weight: bold;margin-bottom: 2%;">오늘의 할인</div>
+                <li class="item" data-sr-id="45"
+                    style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                    <div>
+                        <br>
+                        <div class="cards__topInfo hide-on-mobile">
+                            <div class="badge" data-sr-id="42"
+                                style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                                전체 이용료</div>
+                            <div class="total" data-sr-id="43"
+                                style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                                <div>
+                                    <span class="counter"
+                                        style="display: inline-block; margin-left: 0%; font-size: 20px;">21,000</span>
+                                    won / 3시간
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </li>
+
+
+
+                <li class="item" data-sr-id="46"
+                    style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                    <div>
+                        <div class="cards__topInfo hide-on-mobile">
+                            <div class="badge" data-sr-id="42"
+                                style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                                <br><br>
+                                1인 당 이용료</div>
+                            <div class="total" data-sr-id="43"
+                                style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                                <div>
+                                    <span class="counter"
+                                        style="display: inline-block; margin-left: 0%; font-size: 20px;">3,000</span>
+                                    won x 7명
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </li>
+                <li class="item" data-sr-id="47">
+
+                    <div>
+                        <div class="cards__topInfo hide-on-mobile">
+                            <div class="badge" data-sr-id="42"
+                                style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                                <br><br>
+                                Room Num</div>
+                            <div class="total" data-sr-id="43"
+                                style="visibility: visible;  -webkit-transform: translateX(0) scale(1); opacity: 1;transform: translateX(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; transition: transform 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s, opacity 0.75s cubic-bezier(0.0, 0.0, 0.2, 1) 0s; ">
+                                <div>
+                                    <span class="counter"
+                                        style="display: inline-block; margin-left: 0%; font-size: 20px;">1</span>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="../jquery.counterup.min.js"></script>
+</body>
+
+</html>

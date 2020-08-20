@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>노량진스터디룸</title>
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @font-face {
+            font-family: 'NEXON Lv2 Gothic Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        * {
+            font-family: 'NEXON Lv2 Gothic Bold';
+        }
+
+        .container {
+            max-width: 960px;
+        }
+
+        /*nav-bar*/
+        .site-header {
+            background-color: black;
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .site-header a {
+            color: #999;
+            transition: ease-in-out color .15s;
+        }
+
+        .site-header a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu_size {
+            font-size: 12px;
+            margin-left: 10%;
+
+
+        }
+
+        /*slider*/
+        .slide_size {
+            height: 700px;
+        }
+
+        /*여러안내*/
+        .left_go {
+
+            margin-left: 15%;
+            font-size: 20px;
+        }
+
+
+        .hr_go {
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+
+        .img_size {
+            width: 400px;
+            height: 400px;
+
+        }
+
+        /*사진 그림자 효과*/
+        .imgbox {
+            position: relative;
+            width: 250px;
+            height: 250px;
+
+        }
+
+        .imgbox img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .blur:hover {
+            box-shadow: inset 0 0 250px rgba(0, 0, 0, 0.8);
+        }
+
+        /*하단*/
+        .font_size {
+            font-size: 10px;
+        }
+
+        /*플로팅*/
+        #homeup {
+            display: block;
+            width: 37px;
+            height: 30px;
+            background-image: url(./images/arrow-up.png);
+            background-repeat: no-repeat;
+        }
+
+        #homeup:hover {
+            opacity: 0.4;
+        }
+
+        #homedown {
+            display: block;
+            width: 37px;
+            height: 30px;
+            background-image: url(./images/arrow-down.png);
+            background-repeat: no-repeat;
+        }
+
+        #homedown:hover {
+            opacity: 0.4;
+        }
+
+        .float_z {
+            z-index: 99999;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+    <!--네이게이션바 시작-->
+    <nav class="site-header sticky-top">
+
+        <div class="container d-flex flex-column flex-md-row justify-content-start">
+
+
+            <a class="py-2 d-none d-md-inline-block" href="#">
+                <a class="py-2 d-none d-md-inline-block menu_size" href="./">
+                    <img src="/static/img/flower.png" style="width: 30px;height: 30px;">
+
+                    NR_STUDYROOM
+                </a>
+            </a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="#go_info_stage" style=" margin-top: 8px;">공간안내</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="#go_info_fee" style=" margin-top: 8px;">요금안내</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="#" style=" margin-top: 8px;">스터디룸예약</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="#" style=" margin-top: 8px;">문의하기</a>
+
+        </div>
+    </nav>
+
+    <!--네비게이션바 끝-->
+
+    <!--슬라이더-->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner slide_size">
+            <div class="carousel-item active">
+                <img src="/static/img/slider1.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/static/img/slider2.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!--슬라이더끝-->
+
+
+
+    <!-- 플로팅 메뉴 시작 -->
+    <table id="floating_menu float_z" style="position:fixed; top:30%; left:3%; z-index: 99999;">
+        <tr>
+            <td>
+                <a id="homeup" href="#top" style="margin-left: 40%; "><img src="/static/img/top.png"
+                        style="width: 70%;"></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <div style="border-radius: 15px; padding: 10px;">
+                    <div>
+                        <a onclick="alert('노량진스터디룸 입니다.\n010-1111-2222\n전화연결은 모바일에서 가능합니다.');" href="#"><button
+                                type="button" class="btn btn-outline-warning" style="width:100px">전화</button></a>
+                    </div>
+
+
+                    <div>
+                        <a href="#go_strert"><button type="button" class="btn btn-outline-warning"
+                                style="width:100px">오시는 길</button></a>
+                    </div>
+
+                    <div>
+                    <!-- Talk Talk Banner Script start -->
+                    <script type="text/javascript" src="https://partner.talk.naver.com/banners/script"></script>
+                    <div class="talk_banner_div" data-id="87285" style=" margin-top: 20%;"></div>
+                    <!-- Talk Talk Banner Script end -->
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a id="homedown" href="#footer" style="margin-left: 40%;"><img src="/static/img/footer.png"
+                        style="width: 70%;"></a>
+            </td>
+        </tr>
+    </table>
+
+    <!-- 플로팅 메뉴 끝 -->
+
+    <!--예약 소개영역시작-->
+    <div id="top" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="z-index: 10;">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal" style="font-size: 40px;">노량진스터디룸</h1>
+            <p class="lead font-weight-normal">더욱 간단한 예약사이트가 open!</p>
+            <a class="btn btn-outline-secondary" href="#">예약하기</a>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+    <!--예약 소개영역끝-->
+
+    <!--공간안내시작-->
+    <br><br>
+
+    <div id="go_info_stage"></div>
+
+
+    <div class="left_go" style="margin-top: 5%;">
+        공간안내
+    </div>
+
+    <hr class="hr_go">
+
+    <br>
+
+    <div>
+        <div class="left_go imgbox" style="float:left">
+            <img src="/static/img/study00.jpg" class="img_size">
+            <div class="blur"></div>
+
+
+        </div>
+
+
+
+        <div class="imgbox" style="float:left;margin-left: 1%;">
+            <img src="/static/img/door1.jpg" class="img_size">
+            <div class="blur"></div>
+        </div>
+
+        <div class="imgbox" style="float:left;margin-left: 1%;">
+            <img src="/static/img/studyroom1.jpg" class="img_size">
+            <div class="blur"></div>
+        </div>
+
+        <div class="left_go" style="float:left">
+            <br>
+            <small style="font-size: 12px;">노량진스터디룸은 오직 스터디룸만 있습니다.</small>
+        </div>
+
+    </div>
+    <br><br>
+
+    <!--공간안내끝-->
+
+
+
+
+    <!--요금안내시작-->
+    <br><br>
+
+
+
+    <div style="margin-top: 5%;" id="go_info_fee"></div>
+    <div class="left_go" style="margin-top: 30%;" id="go_info_fee">
+        요금안내
+    </div>
+
+    <hr class="hr_go">
+
+    <br>
+
+    <div class="left_go">
+        <small style="float:left;font-size: 15px;">※스터디룸(365일오픈)</small>
+        <hr style="width: 20%; float:left; margin-left: 3%;">
+        <br>
+
+
+    </div>
+
+    <div class="left_go" style="margin-top: 5%;">
+        <small style="float:left;font-size: 15px;">1-3인</small>
+        <hr style="width: 20%; float:left; margin-left: 3%;">
+        <small style="float:left;font-size: 15px;margin-left: 5%;">6000원</small>
+
+
+
+
+        <small style="float:left;font-size: 15px; margin-left: 7%;">4-6인</small>
+        <hr style="width: 20%; float:left; margin-left: 3%;">
+        <small style="float:left;font-size: 15px;margin-left: 5%;">8000원</small>
+        <br>
+
+
+    </div>
+
+
+    <div class="left_go" style="margin-top: 5%;">
+        <small style="float:left;font-size: 15px;">7인</small>
+        <hr style="width: 20%; float:left; margin-left: 5%;">
+        <small style="float:left;font-size: 15px;margin-left: 5%;">9000원</small>
+
+
+
+    </div>
+
+    <!--요금안내끝-->
+
+    <!--오시는길 시작-->
+
+    <div class="left_go" id="go_strert" style="margin-top: 20%;">
+        오시는길
+    </div>
+
+    <hr class="hr_go">
+
+    <br>
+
+    <div class="left_go">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.792560393931!2d126.94304241480147!3d37.51281043496182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f6796d6bd85%3A0x95b319e8737ea71e!2z64W465-J7KeE7Iqk7YSw65SU66O4!5e0!3m2!1sko!2skr!4v1597171683989!5m2!1sko!2skr"
+            width="750" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+
+    <!--오시는길 끝-->
+
+
+
+
+
+    <!--하단시작-->
+
+    <footer id="footer" class="container py-5" style="float: left; margin-left: 10%;">
+        <hr style="width: 90%;margin-left: 0%;">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img src="/static/img/flower_b.png" style="width: 30px;height: 30px;">
+                <small class="d-block mb-3 text-muted">&copy; 2000-2020</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted font_size" href="#">Cool stuff</a></li>
+                    <li><a class="text-muted font_size" href="#">Random feature</a></li>
+                    <li><a class="text-muted font_size" href="#">Team feature</a></li>
+                    <li><a class="text-muted font_size" href="#">Stuff for developers</a></li>
+                    <li><a class="text-muted font_size" href="#">Another one</a></li>
+                    <li><a class="text-muted font_size" href="#">Last time</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted font_size" href="#">Resource</a></li>
+                    <li><a class="text-muted font_size" href="#">Resource name</a></li>
+                    <li><a class="text-muted font_size" href="#">Another resource</a></li>
+                    <li><a class="text-muted font_size" href="#">Final resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted font_size" href="#">Business</a></li>
+                    <li><a class="text-muted font_size" href="#">Education</a></li>
+                    <li><a class="text-muted font_size" href="#">Government</a></li>
+                    <li><a class="text-muted font_size" href="#">Gaming</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted font_size" href="#">Team</a></li>
+                    <li><a class="text-muted font_size" href="#">Locations</a></li>
+                    <li><a class="text-muted font_size" href="#">Privacy</a></li>
+                    <li><a class="text-muted font_size" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <!--하단끝-->
+
+</html>
