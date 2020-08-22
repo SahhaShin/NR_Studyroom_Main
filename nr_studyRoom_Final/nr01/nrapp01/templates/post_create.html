@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        h3 {
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        h5 {
+            font-weight: bold;
+        }
+
+        input {
+            width: 69.5rem;
+            height: 2.5rem;
+        }
+
+        textarea {
+            width: 69.5rem;
+            height: 25rem;
+        }
+
+        /*nav-bar*/
+        .site-header {
+            background-color: black;
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .site-header a {
+            color: #999;
+            transition: ease-in-out color .15s;
+        }
+
+        .site-header a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu_size {
+            font-size: 12px;
+            margin-left: 10%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--네이게이션바 시작-->
+    <nav class="site-header sticky-top">
+
+        <div class="container d-flex flex-column flex-md-row justify-content-start">
+
+
+            <a class="py-2 d-none d-md-inline-block" href="/main">
+                <a class="py-2 d-none d-md-inline-block menu_size" href="/main">
+                    <img src="/static/img/flower.png" style="width: 30px;height: 30px;">
+
+                    NR_STUDYROOM
+                </a>
+            </a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/main" style=" margin-top: 8px;">공간안내</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/main" style=" margin-top: 8px;">요금안내</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/create" style=" margin-top: 8px;">스터디룸예약</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/cal" style=" margin-top: 8px;">예약현황</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/post_index" style=" margin-top: 8px;">문의하기</a>
+
+        </div>
+    </nav>
+
+    <!--네비게이션바 끝-->
+
+    <div class="container">
+        <a href="{%url 'post_index'%}">
+            <h3>문의하기</h3>
+        </a>
+        <hr>
+        <div class="row">
+            <form action="{% url 'post_new' %}" method="GET">
+                <b>분류</b><br>
+                <select style="width:7rem; height:2rem;" name="category">
+                    <option value="예약문의">예약문의</option>
+                    <option value="기타문의">기타문의</option>
+                </select><br>
+        </div>
+
+        <div class="row">
+            <b>제목</b><input type="text" name="title">
+            <b>이름</b><input type="text" name="name">
+            <b>비밀번호</b><input type="password" name="password">
+            <b>내용</b><textarea name="body"></textarea><br>
+            <input type="submit" style="width: 7rem; margin-top:0.8rem;" class="btn btn-dark" value="작성">
+        </div>
+        </form>
+
+    </div>
+    </div>
+</body>
+<footer>
+
+</footer>

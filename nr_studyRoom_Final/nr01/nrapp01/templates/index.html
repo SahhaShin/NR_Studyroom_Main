@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>예약 현황</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+  <style>
+    h1 {
+      margin-left: 42.5%;
+    }
+
+    #calendar {
+      width: 90%;
+      margin-left: 4.9em;
+    }
+
+    #calendar a {
+      color: black;
+      background-color: white;
+      text-decoration: none;
+    }
+
+    #calendar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    #calendar li {
+      display: block;
+      float: left;
+      width: 14.342%;
+      padding: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      margin-right: -1px;
+      margin-bottom: -1px;
+    }
+
+    #calendar ul.weekdays {
+      height: 40px;
+      background: white;
+    }
+
+    #calendar ul.weekdays li {
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 20px;
+      border: none !important;
+      padding: 10px 6px;
+      margin-bottom: 10px;
+      color: black;
+      font-size: 16px;
+    }
+
+    a:link {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: black;
+      text-decoration: none;
+    }
+
+    h3 {
+      margin: 2em;
+    }
+
+    .do {
+      margin-left: 4.3em;
+      font-size: 1.2em;
+    }
+
+    hr {
+      width: 90%;
+      border: black solid 0.02px;
+    }
+
+    .btn {
+      background-color: white;
+      border: rgb(177, 177, 177) 1px solid;
+      width: 100px;
+      height: 40px;
+      float: left;
+    }
+
+    .btn2 {
+      margin-left: 5.3%;
+      width: 90%
+    }
+
+    .subbtn {
+      width: 180px;
+      height: 150px;
+      border: solid 0.5px rgb(177, 177, 177);
+      border-right: none;
+      border-bottom: none;
+      background-color: white;
+    }
+
+    .days {
+      float: left;
+      text-align: left;
+      margin-bottom: 70%;
+
+
+
+    }
+
+    .subbtn:hover {
+      background-color: rgb(218, 214, 214);
+    }
+
+    p {
+      font-size: 11.9px;
+
+    }
+
+    span,
+    p {
+      margin-top: 10%;
+    }
+
+    /*nav-bar*/
+    .site-header {
+            background-color: black;
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+           
+        }
+
+        .site-header a {
+            color: #999;
+            transition: ease-in-out color .15s;
+        }
+
+        .site-header a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu_size {
+            font-size: 12px;
+            margin-left: 10%;
+
+
+        }
+  </style>
+</head>
+
+<body>
+  <!--네이게이션바 시작-->
+  <nav class="site-header sticky-top">
+
+    <div class="container d-flex flex-column flex-md-row justify-content-start">
+
+
+      <a class="py-2 d-none d-md-inline-block" href="/main">
+        <a class="py-2 d-none d-md-inline-block menu_size" href="/main">
+          <img src="/static/img/flower.png" style="width: 30px;height: 30px;">
+
+          NR_STUDYROOM
+        </a>
+      </a>
+      <a class="py-2 d-none d-md-inline-block menu_size" href="/main" style=" margin-top: 8px;">공간안내</a>
+      <a class="py-2 d-none d-md-inline-block menu_size" href="/main" style=" margin-top: 8px;">요금안내</a>
+      <a class="py-2 d-none d-md-inline-block menu_size" href="/create" style=" margin-top: 8px;">스터디룸예약</a>
+      <a class="py-2 d-none d-md-inline-block menu_size" href="/cal" style=" margin-top: 8px;">예약현황</a>
+      <a class="py-2 d-none d-md-inline-block menu_size" href="/post_index" style=" margin-top: 8px;">문의하기</a>
+
+    </div>
+  </nav>
+
+  <!--네비게이션바 끝-->
+
+  </nav>
+  <header>
+    <h3 style="text-align: center;">룸 예약현황</h3>
+    <div class="do">
+      <button class="btn">
+        <a href="{% url 'create' %}">룸 예약하기</a>
+      </button>
+      <h1>
+
+        <div>2020.08</div>
+
+
+
+
+      </h1>
+    </div>
+    <hr>
+  </header>
+  <div id="calendar-wrap">
+    <div id="calendar">
+      <ul class="weekdays">
+        <li>일요일</li>
+        <li>월요일</li>
+        <li>화요일</li>
+        <li>수요일</li>
+        <li>목요일</li>
+        <li>금요일</li>
+        <li>토요일</li>
+      </ul>
+      <!-- Days from previous month -->
+    </div>
+  </div>
+  <br>
+  <a href="read.html"
+    onclick="window.open(this.href, '_blank', 'width=500px,height=500px,toolbars=no,scrollbars=no'); return false;"></a>
+  <div class="btn2">
+    <span>
+      <a href="read.html"><button id="07_26" class="subbtn" a href="/07_26">
+          <div class="days">26
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "07_26"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="07_27" class="subbtn">
+          <div class="days">27
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "07_27"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="07_28" class="subbtn">
+          <div class="days">28
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "07_28"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="07_29" class="subbtn">
+          <div class="days">29
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "07_29"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="07_30" class="subbtn">
+          <div class="days">30
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "07_30"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="07_31" class="subbtn">
+          <div class="days">31
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "07_31"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"> <button id="08_01" class="subbtn">
+          <div class="days">01
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_01"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+    </span>
+  </div>
+  <div class="btn2">
+    <span>
+      <a href="read/"> <button id="08_02" class="subbtn">
+          <div class="days">02
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_02"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"> <button id="08_03" class="subbtn">
+          <div class="days">03
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_03"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_04" class="subbtn">
+          <div class="days">04
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_04"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+      <a href="read/"><button id="08_05" class="subbtn">
+          <div class="days">05
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_05"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+      <a href="read/"><button id="08_06" class="subbtn">
+          <div class="days">06
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_06"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_07" class="subbtn">
+          <div class="days">07
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_07"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_08" class="subbtn">
+          <div class="days">08
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_08"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+    </span>
+  </div>
+  <div class="btn2">
+    <span>
+      <a href="read/"><button id="08_09" class="subbtn">
+          <div class="days">09
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_09"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"> <button id="08_10" class="subbtn">
+          <div class="days">10
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_10"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_11" class="subbtn">
+          <div class="days">11
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_11"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_12" class="subbtn">
+          <div class="days">12
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_12"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_13" class="subbtn">
+          <div class="days">13
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_13"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_14" class="subbtn">
+          <div class="days">14
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_14"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_15" class="subbtn">
+          <div class="days">15
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_15"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+    </span>
+  </div>
+  <div class="btn2">
+    <span>
+      <a href="read/"><button id="08_16" class="subbtn">
+          <div class="days">16
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_16"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_17" class="subbtn">
+          <div class="days">17
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_17"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_18" class="subbtn">
+          <div class="days">18
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_18"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_19" class="subbtn">
+          <div class="days">19
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_19"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_20" class="subbtn">
+          <div class="days">20
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_20"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_21" class="subbtn">
+          <div class="days">21
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_21"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_22" class="subbtn">
+          <div class="days">22
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_22"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+    </span>
+  </div>
+  <div class="btn2">
+    <span>
+      <a href="read/"><button id="08_23" class="subbtn">
+          <div class="days">23
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_23"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+      <a href="read/"><button id="08_24" class="subbtn">
+          <div class="days">24
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_24"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_25" class="subbtn">
+          <div class="days">25
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_25"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_26" class="subbtn">
+          <div class="days">26
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_26"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+      <a href="read/"><button id="08_27" class="subbtn">
+          <div class="days">27
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_27"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+      <a href="read/"><button id="08_28" class="subbtn">
+          <div class="days">28
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_28"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="08_29" class="subbtn">
+          <div class="days">29
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_09"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+    </span>
+  </div>
+  <div class="btn2">
+    <span>
+      <a href="read/"><button id="08_30" class="subbtn">
+          <div class="days">30
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "08_30"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+      <a href="read/"></a><button id="08_31" class="subbtn">
+        <div class="days">31
+          <br>
+          {%for board in boards.all%}
+          <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+          {%if board.m_d == "08_31"%}
+          <span>
+            <p>
+              {{board.name}}님 /
+              {{board.start_time}}~{{board.end_time}}
+            </p>
+          </span>
+
+          {%endif%}
+          {%endfor%}
+        </div>
+      </button></a>
+
+      <a href="read/"></a><button id="09_01" class="subbtn">
+        <div class="days">01
+          <br>
+          {%for board in boards.all%}
+          <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+          {%if board.m_d == "09_01"%}
+          <span>
+            <p>
+              {{board.name}}님 /
+              {{board.start_time}}~{{board.end_time}}
+            </p>
+          </span>
+
+          {%endif%}
+          {%endfor%}
+        </div>
+      </button></a>
+
+      <a href="read/"><button id="09_02" class="subbtn">
+          <div class="days">02
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "09_02"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="09_03" class="subbtn">
+          <div class="days">03
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "09_03"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="09_04" class="subbtn">
+          <div class="days">04
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "09_04"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+      <a href="read/"><button id="09_05" class="subbtn">
+          <div class="days">05
+            <br>
+            {%for board in boards.all%}
+            <!-- <p class="title mt-5">{{board.m_d}}</p> -->
+            {%if board.m_d == "09_05"%}
+            <span>
+              <p>
+                {{board.name}}님 /
+                {{board.start_time}}~{{board.end_time}}
+              </p>
+            </span>
+
+            {%endif%}
+            {%endfor%}
+          </div>
+        </button></a>
+
+    </span>
+  </div>
+
+</body>
+
+</html>

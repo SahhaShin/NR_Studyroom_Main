@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+    
+    
+    
+    <style>
+        h2{
+            margin: 2em;
+        }
+        .hr1{
+            width: 90%;
+            border: black solid 0.02px;
+            margin-top: 107px;
+            margin-bottom: 1em;
+        }
+        ul{
+            margin-left: 3em;
+            margin-top: 40px;
+            
+            
+        }
+        ul li{
+            padding-bottom: 1em;
+            font-size: 14px;
+        }
+        .info{
+            margin-left: 2.3em;
+        }
+        p{
+            padding-bottom: 2.5em;
+        }
+        .hr2{
+            border: rgb(223, 222, 222) 0.1px solid;
+            width: 90%;
+        }
+        input{
+            padding-left: 3em;
+            margin-left: 5em;
+            height: 3em;
+            border: rgb(224, 222, 222) 1px solid;
+            width: 200px;
+        }
+        input .btn{
+            color: white;
+            text-align: center;
+            width: 100px;
+        }
+        .check{
+            padding: auto;
+        }
+        select{
+            height: 3em;
+            width: 245px;
+            margin-left: 5.6em;
+            text-align: center;
+            border: rgb(224, 222, 222) 1px solid;
+        }
+        textarea{
+            height: 6em;
+            width: 50%;
+            margin-left: 6.7em;
+            border: rgb(224, 222, 222) 1px solid;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h2 style="text-align: center;">룸 예약하기</h2>
+          <hr class="hr1">
+    </header>
+    <div>
+        <ul>
+            <li>신청→예약대기 문자 수신→이용요금 입금→예약완료 문자 수신→룸사용</li>
+            <li>※스터디룸은 노량진 2호점에 있습니다.</li>
+            <li>※네이버 톡톡으로 댓글 알림받기 꼭 체크해주세요!</li>
+            <li>8, 9인 예약은 010-3285-1035로 전화 주세요.</li>
+        </ul>
+    </div>
+
+    <hr class="hr2">
+        <form action="register/" method="GET">
+            <div class="info">
+                <div class="info">
+                    <p>이름&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" class="name" name="name" value="{{change.name}}"></p>
+                    <p>연락처&nbsp&nbsp&nbsp<input type="number" class="phone_number" name="phone_number" value="{{change.phone_number}}"> &nbsp&nbsp&nbsp&nbsp ('-'없이 입력하시오)</p>
+                    <p>시작시간<input class="start_date" name="start_date" type='date' id='currentDate' value="2020-08-23"><input class="start_time" name="start_time" type="time" placeholder="시간선택" style="margin-left: 20px;" id="currentTime" value="12:00">
+                        <!-- <script>
+                            document.getElementById('currentTime').defaultvalue = "{{change.start_date}}";
+                        </script></p> -->
+                    <p>종료시간<input class="end_date" name="end_date" type="date" id='now_Date' value="2020-08-23"><input class="end_time" name="end_time" type="time" placeholder="시간선택" style="margin-left: 20px;" id="now_Time" value="12:00"> 
+                        <!-- <script>
+                            document.getElementById('now_Time').value = new Date().toISOString().slice(11, 16);
+                          </script></p> -->
+                    <script>
+                        // document.getElementById('now_Date').valueAsDate = new Date();
+                        </script>
+                    <p>인원수
+                        <select name="people" aria-placeholder="선택">
+                            {% if change.people == 1 %}
+                            <option >선택안함</option>
+                            <option value="1" selected="selected">1명</option>
+                            <option value="2">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4">4명</option>
+                            <option value="5">5명</option>
+                            <option value="6">6명</option>
+                            <option value="7">7명</option>
+                            {% elif change.people == 2 %}
+                            <option >선택안함</option>
+                            <option value="1">1명</option>
+                            <option value="2" selected="selected">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4">4명</option>
+                            <option value="5">5명</option>
+                            <option value="6">6명</option>
+                            <option value="7">7명</option>
+                            {% elif change.people == 3 %}
+                            <option >선택안함</option>
+                            <option value="1">1명</option>
+                            <option value="2">2명</option>
+                            <option value="3" selected="selected">3명</option>
+                            <option value="4">4명</option>
+                            <option value="5">5명</option>
+                            <option value="6">6명</option>
+                            <option value="7">7명</option>
+                            {% elif change.people == 4 %}
+                            <option >선택안함</option>
+                            <option value="1">1명</option>
+                            <option value="2">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4" selected="selected">4명</option>
+                            <option value="5">5명</option>
+                            <option value="6">6명</option>
+                            <option value="7">7명</option>
+                            {% elif change.people == 5 %}
+                            <option >선택안함</option>
+                            <option value="1">1명</option>
+                            <option value="2">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4">4명</option>
+                            <option value="5" selected="selected">5명</option>
+                            <option value="6">6명</option>
+                            <option value="7">7명</option>
+                            {% elif change.people == 6 %}
+                            <option >선택안함</option>
+                            <option value="1">1명</option>
+                            <option value="2">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4">4명</option>
+                            <option value="5">5명</option>
+                            <option value="6" selected="selected">6명</option>
+                            <option value="7">7명</option>
+                            {% elif change.people == 7 %}
+                            <option >선택안함</option>
+                            <option value="1">1명</option>
+                            <option value="2">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4">4명</option>
+                            <option value="5">5명</option>
+                            <option value="6">6명</option>
+                            <option value="7" selected="selected">7명</option>
+                            {%endif%}
+                          </select>
+                    </p>
+                    <p>문의
+                        <textarea name="memo" id="memo" cols="30" rows="10">{{change.memo}}</textarea>
+                    </p>
+                </div>
+            </div>
+              
+    <div class="container-fluid footer bg-light d-flex justify-content-center" >
+        <input type="submit" class="btn btn-dark rounded-pill pr-4 pl-4 mt-3 mb-3" value="완료"> 
+        </form>
+        <!-- <script>
+            document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+        </script> -->
+    </div>
+</body>
+</html>

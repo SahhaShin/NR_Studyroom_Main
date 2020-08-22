@@ -1,0 +1,155 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        a {
+            margin-left: 2%;
+        }
+
+        hr {
+            width: 94%;
+            border: rgb(223, 222, 222) 0.1px solid;
+        }
+
+        .header {
+            margin-top: 35px;
+            margin-left: 3%;
+            font-size: 40px;
+        }
+
+        .content,
+        .info,
+        .memo {
+            margin-bottom: 25px;
+            margin-left: 3%;
+            font-size: 15px;
+        }
+
+        button {
+            border: white 1px solid;
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        /*nav-bar*/
+        .site-header {
+            background-color: black;
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .site-header a {
+            color: #999;
+            transition: ease-in-out color .15s;
+        }
+
+        .site-header a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu_size {
+            font-size: 12px;
+            margin-left: 10%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--네이게이션바 시작-->
+    <nav class="site-header sticky-top">
+
+        <div class="container d-flex flex-column flex-md-row justify-content-start">
+
+
+            <a class="py-2 d-none d-md-inline-block" href="/main">
+                <a class="py-2 d-none d-md-inline-block menu_size" href="/main">
+                    <img src="/static/img/flower.png" style="width: 30px;height: 30px;">
+
+                    NR_STUDYROOM
+                </a>
+            </a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/main" style=" margin-top: 8px;">공간안내</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/main" style=" margin-top: 8px;">요금안내</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/create" style=" margin-top: 8px;">스터디룸예약</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/cal" style=" margin-top: 8px;">예약현황</a>
+            <a class="py-2 d-none d-md-inline-block menu_size" href="/post_index" style=" margin-top: 8px;">문의하기</a>
+
+        </div>
+    </nav>
+
+    <!--네비게이션바 끝-->
+
+    <div class="header">
+
+        08월 23일 예약현황
+        <!--팝업창 상단에 달력 클릭시 해당 일 표시-->
+    </div>
+    
+    <div>
+        {%for read in boards.all%}
+        {%if read.m_d == "08_23"%}
+<hr>
+        <div class="content">
+            <!--예약된 정보가 나오게끔 -->
+            예약 일시 :<span> &nbsp; {{read.start_date}} &nbsp; </span>
+            <span>/ &nbsp; {{read.start_time}}&nbsp;~&nbsp;{{read.end_time}}</span>
+        </div>
+        <div class="info">
+            <P>성함 : {{read.name}}님 </P>
+            <p> 전화번호 : {{read.phone_number}} </p>
+            <p>인원수 : {{read.people}}명</p>
+
+        </div>
+        <div class="memo">
+            요청 사항 : {{read.memo}}
+        </div>
+        <span>
+            <div class>
+                <script type="text/javascript">
+                    function button_event() {
+
+                        if (confirm("정말 삭제하시겠습니까??") == true) {    //확인
+
+                            document.form.submit();
+
+                        } else {   //취소
+
+                            return;  /*취소해도 삭제되는 문제*/
+                        }
+
+                    }        
+                </script>
+
+                <a href="/delete/{{read.id}}"><small> <button onclick="button_event();">삭제</button></small></a>
+                <a href="/update/{{read.id}}"><small> <button>수정</button></small></a>
+            </div>
+        </span>
+
+
+        {%endif%}
+        {%endfor%}
+
+    </div>
+
+</body>
+
+</html>
